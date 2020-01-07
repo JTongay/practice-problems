@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { romanNumerals, PinValidator } from '../src/test';
+import { romanNumerals, PinValidator, Multiples } from '../src/test';
 import 'mocha';
 
 describe('Roman Numeral Decoder', () => {
@@ -48,4 +48,10 @@ describe('PinValidator', () => {
     expect(PinValidator.validate('123456')).to.be.true;
     expect(PinValidator.validate('666999')).to.be.true;
   });
+});
+
+describe('Multiples of 3 or 5 then add', () => {
+  it('should add up all the numbers in a given number that are multiples of 3 or 5' , () => {
+    expect(Multiples.threeOrFive(10)).to.equal(23);
+  })
 })
