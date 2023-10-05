@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { romanNumerals, PinValidator, Multiples } from '../src/test';
+import { romanNumerals, PinValidator, Multiples, twoSum, isPalindrome, findTheDifference } from '../src/test';
 import 'mocha';
 
 describe('Roman Numeral Decoder', () => {
@@ -55,3 +55,45 @@ describe('Multiples of 3 or 5 then add', () => {
     expect(Multiples.threeOrFive(10)).to.equal(23);
   })
 })
+
+describe("TwoSum", () => {
+  it("returns the sum of back to back indexes", () => {
+    const result = twoSum([2,7,11,15], 9);
+
+    expect(result).to.deep.equal([0,1])
+  })
+  it("returns another sum of the back to back indexes", () => {
+    const result = twoSum([3,2,4], 6);
+
+    expect(result).to.deep.equal([1, 2])
+  })
+
+  it("returns indexes not directly next to each other", () => {
+    const result = twoSum([3, 2, 3], 6);
+
+    expect(result).to.deep.equal([0, 2])
+  })
+});
+
+describe("isPalindrome number", () => {
+  it("returns true for a palindrome", () => {
+    const result = isPalindrome(101);
+
+    expect(result).to.be.true;
+  });
+
+  it("returns false for not a palindrome", () => {
+    const result = isPalindrome(1234);
+
+    expect(result).to.be.false;
+  })
+})
+
+describe("findTheDifference", () => {
+  it("found the difference and returned the extra", () => {
+    const result = findTheDifference("abcd", "abcde");
+
+    expect(result).to.equal("e");
+  });
+});
+
